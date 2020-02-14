@@ -10,7 +10,20 @@ Aloitin projektin luomalla uuden python-virtuaaliympäristön terminaalissa cond
 ```sh
 conda create --name ohsiha python
 ```
-Virtuaaliympäristön nimi on siis 'ohsiha' ja lopussa oleva 'python' määrittää virtuaaliympäristön python tulkiksi uusimman version. Tämä jälkeen aktivoin tämän uuden ympäristön ja asensin siihen djangon pip-pakettityökalulla:
+Virtuaaliympäristön nimi on siis 'ohsiha' ja lopussa oleva 'python' määrittää virtuaaliympäristön python tulkiksi uusimman version. Tämä jälkeen aktivoin tämän uuden ympäristön ja asensin siihen VSC:n tarvitseman pylint-paketin, sekä djangon pip-pakettityökalulla:
 ```sh
+pip install pylint
 pip install django
 ```
+Pakettien asennuttua loin uuden django-projektin:
+```sh
+django-admin create ohsiha
+```
+Tämä komento generoi "ohsiha"-nimisen projektikansio, joka sisältää djangon kehityspalvelimen suorittamiseen tarvittavat tiedostot.
+Ensimmäisenä korjasin palvelimen aikavyöhykkeen muuttamalla alikansiossa olevan settings.py -tiedostosta TIME_ZONE -muuttujan arvoksi 'Europe/Helsinki'.
+
+Tämän jälkeen loin uuden django-sovelluksen:
+```sh
+python manage.py startapp page
+```
+Tämä luo projektikansioon "page"-nimisen kansion, joka sisältää tämän uuden sovelluksen resurssitiedostoja.
