@@ -26,4 +26,7 @@ Tämän jälkeen loin uuden django-sovelluksen:
 ```sh
 python manage.py startapp page
 ```
-Tämä luo projektikansioon "page"-nimisen kansion, joka sisältää tämän uuden sovelluksen resurssitiedostoja.
+Tämä luo projektikansioon "page"-nimisen kansion, joka sisältää tämän uuden sovelluksen resurssitiedostoja. Toteutin Djangon sivuilta löytyvän tutoriaalin ohjeita mukaillen pienen "musiikkisovelluksen", jonka tietokantaan kokeilin tallentaa kappaleita tietoineen, ja hakea niitä sieltä hyödyntäen sekä djangon admin-sivua, sekä interaktiivista python konsolia.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbODMyMDU2MTcwXX0=
+-->
