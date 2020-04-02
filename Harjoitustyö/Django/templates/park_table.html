@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+        <style>
+            html body {
+                min-height:100%;/* make sure it is at least as tall as the viewport */
+                position:relative;
+                height:100%; /* force the BODY element to match the height of the HTML element */
+                width: 100%;
+                margin: 0;
+               overflow: hidden;
+            }
+
+            .row {
+                column-count: 2;
+            }
+
+            .column {
+                width: 100%;
+                display: inline-block;
+                height: 100%;
+            }
+            
+            .info {
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="row">
+        <div id="mapid" class="column"></div>
+        <div id="tframe" class="">
+        <button class="myButton" onclick="getQueryData()">Get data</button>
+        <h1>Tampere dog parks</h1>
+        <table id="park_table" cellpadding="5"></table>
+        <p class="info">Here are the dog parks of Tampere! You can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.</p>
+            </div>
+        
+        <script src="../static/js/test.js"></script>
+        </div>
+    </body>
+</html>

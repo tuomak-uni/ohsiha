@@ -1,0 +1,90 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+crossorigin=""></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<div id="frame">
+  <div id="head_line">
+    <H1>Hi {{ user.username }}!</H1>
+    <p><a href="{% url 'password_change' %}">change password</a></p>
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    <p id="lat:"></p>
+    <p id="lon:"></p>
+  </div>
+
+  <div id="mapid"></div>
+  <script src="{% static 'js/map.js' %}"></script>
+  <div id="bottom_line">
+    <button class="myButton" onclick="clearMarkers()">Clear markers</button>
+    <button onclick="getLocation()" class="myButton">Get current location</button>
+    <button class="myButton" onclick="getQueryData()">Get data</button>
+    </div>
+
+<!--
+
+<script>
+  let data = {
+        resource_id: '8c710e26-6fcd-4078-928f-0e5572d84ce0', // the resource id
+        limit: 5, // get 5 results
+        q: 'my_resource_query' // query for 'my_resource_query'
+    };
+
+  let result = null
+
+  $.ajaxSetup({ cache: true });
+  $.ajax({
+      url: 'https://data.tampere.fi/data/api/action/datastore_search',
+      data: {
+          resource_id: '8c710e26-6fcd-4078-928f-0e5572d84ce0', // the resource id
+          //limit: 5
+      },
+      dataType: 'jsonp',
+      success: function(data) {
+          result = data.result.records;
+          return addParks(result);
+      } 
+  });
+</script>
+#{% include 'park_table.html' %}-->
+<table id="parks">
+  <tr>
+    <th>Highlight</th>
+    <th>Park</th>
+    <th>District</th> 
+    <th>Area</th>
+  </tr>
+  {% for p in parks %}
+  <tr>
+      <td><input type="checkbox"></button></td>
+      <td>{{p}}</td>
+      <td>{{p.kaupungin_osa}}</td>
+      <td>{{p.pinta_ala}} m<sup>2</sup></td>
+
+  </tr>
+  {% endfor %}
+</table>
+{{ current_datetime }}
+
+
+{% else %}
+<div id="frame"></div>
+  <h1>Welcome!</h1>
+  <h2><a href="{% url 'login' %}">Login here</a></h2>
+  </div>
+{% endif %}
+{% endblock %}
