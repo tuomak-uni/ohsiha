@@ -9,18 +9,22 @@ crossorigin=""></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <style>
-            html body {
+            html, body {
                 min-height:100%;/* make sure it is at least as tall as the viewport */
                 position:relative;
                 height:100%; /* force the BODY element to match the height of the HTML element */
                 width: 100%;
                 margin: 0;
-               overflow: hidden;
+                overflow: hidden;
             }
 
             .row {
-                column-count: 2;
+                column-count: 3;
             }
 
             .column {
@@ -29,7 +33,13 @@ crossorigin=""></script>
                 height: 100%;
             }
             
-            .info {
+            #charts {
+                column-count: 1;
+            }
+
+            .chart{
+                height: 50%;
+                width: 50%;
             }
             
         </style>
@@ -38,12 +48,17 @@ crossorigin=""></script>
         <div class="row">
         <div id="mapid" class="column"></div>
         <div id="tframe" class="">
-        <button class="myButton" onclick="getQueryData()">Get data</button>
+        <!--<button class="myButton" onclick="getQueryData()">Get data</button>-->
         <h1>Tampere dog parks</h1>
-        <table id="park_table" cellpadding="5"></table>
-        <p class="info">Here are the dog parks of Tampere! You can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.</p>
-            </div>
+        <p class="info">Here are the dog parks of Tampere! You can mark the ones you like with<br>the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.</p>
+        <table id="park_table" cellpadding="2"></table>
         
+        
+            </div>
+        <div id="charts" class="charts">
+        <div id="areaColChart"></div>
+        <div id="countColChart"></div>
+        </div>
         <script src="../static/js/test.js"></script>
         </div>
     </body>
