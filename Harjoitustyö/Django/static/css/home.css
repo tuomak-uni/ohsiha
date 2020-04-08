@@ -1,0 +1,48 @@
+.row {
+    column-count: 2;
+    position: relative;
+    display: flex;
+}
+
+.map {
+    width: 50vw;
+}
+
+.column {
+    height: 100vh;
+    width: 50vw;
+    margin: 5px;
+}
+
+.subrow {
+    /*height: 50vh;*/
+    width: 50vw;
+    
+}
+
+.chart {
+    height: 100%;
+    width: 100%;
+}
+
+#park_table th, td{
+    padding: 8px;
+    text-align: center;
+}
+
+#row1 {
+    margin: 5px;
+}
+
+#r1Column {
+    display: flex;
+}
+
+#row2 {
+    position: absolute;
+    align-items: center;
+}
+
+#row1 p, table {
+
+}

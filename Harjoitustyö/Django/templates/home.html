@@ -13,6 +13,7 @@ crossorigin=""></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -42,19 +43,25 @@ crossorigin=""></script>
   </div>
   <script src="../static/js/map.js"></script>-->
   <div class="row">
-    <div id="mapid" class="column"></div>
-    <div id="tframe" class="column">
+    <div id="mapCol" class="column"></div>
+    <div id="infoCol" class="column">
+      <div id="row1" class="subrow">
       <!--<button class="myButton" onclick="getQueryData()">Get data</button>-->
-      <p>Logged in as <b>{{ user.username }}</b> <a href="{% url 'logout' %}">logout</a></p>
+      <div id="infoPanel">
+      <p>Logged in as <b>{{ user.username }}</b></p>
+      <a href="{% url 'logout' %}">logout</a>
+      </div>
       <h1>Tampere dog parks</h1>
       <p class="info" align="left">Here are the dog parks of Tampere! You can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.</p>
-      <table id="park_table" cellpadding="2"></table>
+      <div id="r1Columns">
+      <table id="park_table"></table>
+      <div id="chart2"></div>
+      </div>
     </div>
-    <div id="charts" class="charts">
-      <div id="areaColChart" class="chart"></div>
-      <!--<div id="countColChart" class="chart"></div>-->
-      <div id="bubbleChart" class="chart"></div>
-    </div>
+      <div id="row2" class="subrow">
+        <!--<div id="areaColChart" class="chart"></div>-->
+        <div id="bubbleChart" class="chart"></div>
+      </div>
     
     </div>
   <script src="../static/js/map.js"></script>
