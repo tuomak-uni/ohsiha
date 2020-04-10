@@ -168,7 +168,7 @@ function initChart(data)
     chart = Highcharts.chart('bubbleChart', {
         chart: {
             type: 'packedbubble',
-            //height: '100%',
+            /* height: '170%', */
             backgroundColor: '#191919'
         },
         title: {
@@ -239,6 +239,41 @@ function viewTable()
     }
     chart.redraw();
 }*/
+let buttons = [
+    document.getElementById('park_table'),
+    document.getElementById('bubbleChart'),
+];
 
+for (let elem in buttons)
+{
+    if (buttons[elem].id != 'park_table')
+    {
+        buttons[elem].style.display = 'none';
+    }
+};
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    
+    if (content.style.display === "block") {
+        for (let elem in buttons)
+        {
+            buttons[elem].style.display = 'none';
+        };
+    } 
+    else {
+        for (let elem in buttons)
+        {
+            buttons[elem].style.display = 'none';
+        };
+        content.style.display = "block";
+    }
+  });
+}
 
 getQueryData();

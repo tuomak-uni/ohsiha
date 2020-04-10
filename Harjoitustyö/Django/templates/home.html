@@ -42,10 +42,11 @@ crossorigin=""></script>
   </div>
   </div>
   <script src="../static/js/map.js"></script>-->
+
   <div class="row">
     <div id="mapCol" class="column"></div>
     <div id="infoCol" class="column">
-      <div id="row1" class="subrow">
+      <!-- <div id="row1" class="subrow"></div> -->
       <!--<button class="myButton" onclick="getQueryData()">Get data</button>-->
       <div id="infoPanel">
       <p>Logged in as <b>{{ user.username }}</b></p>
@@ -53,14 +54,17 @@ crossorigin=""></script>
       </div>
       <h1>Tampere dog parks</h1>
       <p class="info" align="left">Here are the dog parks of Tampere! You can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.</p>
-      <div id="r1Columns">
+      <!-- <div id="r1Columns"> -->
+      <button type="button" class="collapsible">Table</button>
       <table id="park_table"></table>
-      <div id="chart2"></div>
+      <!-- <div id="chart2"></div>
       </div>
     </div>
       <div id="row2" class="subrow">
-        <!--<div id="areaColChart" class="chart"></div>-->
-        <div id="bubbleChart" class="chart"></div>
+        <div id="areaColChart" class="chart"></div> -->
+      <button type="button" class="collapsible">Bubble</button>
+      <div id="bubbleChart" class="chart"></div>
+      <button type="button" class="collapsible">2nd chart</button>
       </div>
     
     </div>
