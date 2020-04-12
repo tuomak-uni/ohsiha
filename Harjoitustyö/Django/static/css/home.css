@@ -31,35 +31,12 @@
     text-align: center;
 }
 
-#row1 {
-    margin: 5px;
+.info {
+    text-align: center;
 }
 
-#r1Column {
-    display: flex;
+.view {
+    display: none;
 }
-
-#row2 {
-    position: absolute;
-    align-items: center;
-}
-
-.collapsible {
-    background-color: #eee;
-    color: rgb(25, 25, 25);
-    cursor: pointer;
-    padding: 18px;
-    /* width: 10%; */
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    display: block;
-    position: static;
-}
-
-.active, .collapsible:hover {
-    background-color: #ccc;
-  }
 
   

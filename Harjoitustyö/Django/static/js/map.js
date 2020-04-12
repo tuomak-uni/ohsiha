@@ -71,7 +71,7 @@ function addParks(data)
 
 function createTable(data)
 {
-    let tbl = document.getElementById('park_table');
+    let tbl = document.getElementById('parkTable');
 
     let headers = ['<b>Highlight</b>', '<b>Park</b>', '<b>District</b>'];
     let dataRows = ['checkbox', 'ALUE_NIMI', 'KAUPUNGINOSA'];
@@ -168,7 +168,7 @@ function initChart(data)
     chart = Highcharts.chart('bubbleChart', {
         chart: {
             type: 'packedbubble',
-            /* height: '170%', */
+            height: '100%',
             backgroundColor: '#191919'
         },
         title: {
@@ -185,7 +185,7 @@ function initChart(data)
         },
         plotOptions: {
             packedbubble: {
-                minSize: '20%',
+                minSize: '10%',
                 maxSize: '50%',
                 zMin: 0,
                 zMax: 1000,
@@ -240,40 +240,33 @@ function viewTable()
     chart.redraw();
 }*/
 let buttons = [
-    document.getElementById('park_table'),
+    document.getElementById('parkTable'),
     document.getElementById('bubbleChart'),
 ];
 
 for (let elem in buttons)
 {
-    if (buttons[elem].id != 'park_table')
+    if (buttons[elem].id != 'parkTable')
     {
         buttons[elem].style.display = 'none';
     }
 };
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
+let views = {
+    'info': '.info',
+    'table': '#parkTable',
+    'bubble': '#bubbleChart'
+};
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    
-    if (content.style.display === "block") {
-        for (let elem in buttons)
+$('select').change(function(){
+    for(let i in views)
+    {
+        if(i != this.value)
         {
-            buttons[elem].style.display = 'none';
-        };
-    } 
-    else {
-        for (let elem in buttons)
-        {
-            buttons[elem].style.display = 'none';
-        };
-        content.style.display = "block";
+            $(views[i]).css('display', 'none');
+        }
     }
-  });
-}
+    $(views[this.value]).css('display', 'block');
+});
 
 getQueryData();
