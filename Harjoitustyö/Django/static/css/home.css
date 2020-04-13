@@ -15,10 +15,10 @@
     padding: 5px;
 }
 
-.subrow {
-    /*height: 50vh;*/
-    width: 50vw;
-    
+#infoCol {
+    align-items: center;
+    align-content: center;
+    text-align: center;
 }
 
 .chart {
@@ -43,3 +43,11 @@
     display: none;
 }
 
+select {
+    background-color: rgb(25, 25, 25);
+    color: teal;
+}
+
+option:not(:checked) {
+    color: whitesmoke;
+}

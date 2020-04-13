@@ -169,7 +169,7 @@ function initChart(data)
     chart = Highcharts.chart('bubbleChart', {
         chart: {
             type: 'packedbubble',
-            height: '100%',
+            height: '175%',
             backgroundColor: '#191919'
         },
         title: {
@@ -200,11 +200,6 @@ function initChart(data)
                 dataLabels: {
                     enabled: true,
                     format: '{point.name}',
-                    /*filter: {
-                        property: 'y',
-                        operator: '>',
-                        value: 250
-                    },*/
                     style: {
                         color: 'black',
                         textOutline: 'none',
@@ -215,43 +210,7 @@ function initChart(data)
         },
         series: dist_park_area
     });
-
-    
-
-    
 }
-/*
-function viewTable()
-{
-    let btn = document.getElementById("viewButton");
-    let tbl = document.getElementById("park_table");
-    let chrt = document.getElementById("bubbleChart");
-    if(tbl.style.display == "none")
-    {
-        tbl.style.display = "block";
-        chrt.style.display = "none";
-        btn.innerHTML = "Hide table";
-    }
-    else
-    {
-        tbl.style.display = "none";
-        chrt.style.display = "block";
-        btn.innerHTML = "Show table";
-    }
-    chart.redraw();
-}*/
-let buttons = [
-    document.getElementById('parkTable'),
-    document.getElementById('bubbleChart'),
-];
-
-for (let elem in buttons)
-{
-    if (buttons[elem].id != 'parkTable')
-    {
-        buttons[elem].style.display = 'none';
-    }
-};
 
 let views = {
     'info': '.info',
