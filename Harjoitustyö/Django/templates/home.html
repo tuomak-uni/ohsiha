@@ -8,8 +8,6 @@
   
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"> -->
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="shortcut icon" type="image/png" href="/static/favicon.ico"/>
   
@@ -38,31 +36,11 @@ crossorigin=""></script>
 
 </head>
 <body>
-    
-
-
-<!--
-<div class="row">
-  <div id="mapid" class="map"></div>
-  <div id="tframe" class="column">
-  <p>Logged in as <b>ttmkr</b> <a href="/accounts/logout/">logout</a></p>
-  <h1>Tampere dog parks</h1>
-  <p class="info">Here are the dog parks of Tampere!<br>
-    You can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.
-  <br>By clicking the red area of a park on the map will open a tooltip that shows the total area of the park.</p>
-  <table id="park_table"></table>
-
-  <p><a href="/accounts/password_change/">change password</a></p>
-
-  </div>
-  </div>
-  <script src="../static/js/map.js"></script>-->
 
   <div class="row">
     <div id="mapCol" class="column"></div>
     <div id="infoCol" class="column">
-      <!-- <div id="row1" class="subrow"></div> -->
-      <!--<button class="myButton" onclick="getQueryData()">Get data</button>-->
+      
       <div id="infoPanel">
       <p>Logged in as <b>ttmkr</b></p>
       <a href="/accounts/logout/">logout</a>
@@ -73,23 +51,15 @@ crossorigin=""></script>
         <option value="info">Info</option>
         <option value="table">Table</option>
         <option value="bubble">Bubble chart</option>
-        <option value=""></option>
+        <!-- <option value=""></option> -->
       </select>
       <div id="view"></div>
-      <!-- <div id="r1Columns"> -->
-      <!-- <button type="button" class="collapsible">Table</button> -->
+
       <p class="info" align="left">Here are the dog parks of Tampere! <br> In the table view you can mark the ones you like with the checkbox, and by clicking the name of the area in the table, the map will automatically focus to that park.<br><br>In the bubble chart -view, you can see the park according to their districts, and view their areas. <br> Data is from <a href="https://data.tampere.fi/data/fi/dataset/ba68a4f0-1843-432d-955b-15173262627f" target="_blank">here</a>.</p>
       <table id="parkTable" class="view"></table>
-      <!-- <div id="chart2"></div>
-      </div>
-    </div>
-      <div id="row2" class="subrow">
-        <div id="areaColChart" class="chart"></div> -->
-      <!-- <button type="button" class="collapsible">Bubble</button> -->
       <div id="bubbleChart" class="view"></div>
-      <!-- <button type="button" class="collapsible">2nd chart</button> -->
+
       </div>
-    
     </div>
   <script src="../static/js/map.js"></script>
 

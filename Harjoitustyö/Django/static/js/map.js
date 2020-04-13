@@ -119,6 +119,7 @@ function createTable(data)
                     {
                         baseMap.fitBounds(data[i]['POLY'].getBounds())
                     }
+                    cell.style.color = 'teal';
                 }
             }
             

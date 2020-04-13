@@ -31,6 +31,10 @@
     text-align: center;
 }
 
+#park_table td:hover {
+    color: whitesmoke;
+}
+
 .info {
     text-align: center;
 }
@@ -39,4 +43,3 @@
     display: none;
 }
 
-  
