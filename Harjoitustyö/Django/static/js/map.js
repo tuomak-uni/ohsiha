@@ -26,11 +26,14 @@ function getQueryData()
         }
     })
 }
+
+// General capitalization function
 function capitalizeStr(str)
 {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(); 
 }
 
+// Parse map data and add park area polygons to map
 function addParks(data)
 {
     let polyGroup = L.layerGroup();
@@ -69,6 +72,8 @@ function addParks(data)
     createTable(data);
 }
 
+
+// Create table of the park data
 function createTable(data)
 {
     let tbl = document.getElementById('parkTable');
@@ -129,8 +134,11 @@ function createTable(data)
 }
 
 let chart = null;
+
+// Create the visualizations of the data
 function initChart(data)
 {
+    let park_area = [];
     let dist_park_area = [];
     for(let i in data)
     {
@@ -163,13 +171,20 @@ function initChart(data)
                 }
             );
         }
+    }
 
+    for (let i in data)
+    {
+        park_area.push({
+            'name': data[i]['ALUE_NIMI'],
+            'data': [parseFloat(data[i]['PINTA_ALA'])]
+        })
     }
 
     chart = Highcharts.chart('bubbleChart', {
         chart: {
             type: 'packedbubble',
-            height: '175%',
+            height: '110%',
             backgroundColor: '#191919'
         },
         title: {
@@ -210,12 +225,75 @@ function initChart(data)
         },
         series: dist_park_area
     });
+
+    Highcharts.chart('colChart', {
+        chart: {
+            type: 'column',
+            height: '110%',
+            backgroundColor: '#191919',
+            style: {
+                color: 'whitesmoke'
+            }
+        },
+        title: {
+            text: 'Areas of all dog parks in Tampere',
+            style: {
+                color: 'whitesmoke'
+            }
+        },
+        xAxis: {
+            categories: ['Parks'],
+            labels: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            min: 0,
+            max: 37500,
+            title: {
+                useHTML: true,
+                text: 'Total dog park area (m<sup>2</sup>)',
+                style: {
+                    color: 'whitesmoke'
+                }
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: ( // theme
+                        Highcharts.defaultOptions.title.style &&
+                        Highcharts.defaultOptions.title.style.color
+                    ) || 'black'
+                }
+            }
+        },
+        legend: {
+            enabled: false,
+        },
+        tooltip: {
+            useHTML: true,
+            headerFormat: '',
+            pointFormat: '<b>{series.name}</b>: {point.y}m<sup>2</sup><br/>Total: {point.stackTotal}m<sup>2</sup>'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    format: '{series.name}'
+                }
+            }
+        },
+        series: park_area
+    });
 }
 
 let views = {
     'info': '.info',
     'table': '#parkTable',
-    'bubble': '#bubbleChart'
+    'bubble': '#bubbleChart',
+    'column': '#colChart'
 };
 
 $('select').change(function(){
