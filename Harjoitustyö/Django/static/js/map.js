@@ -184,7 +184,7 @@ function initChart(data)
     chart = Highcharts.chart('bubbleChart', {
         chart: {
             type: 'packedbubble',
-            height: '110%',
+            //height: '110%',
             backgroundColor: '#191919'
         },
         title: {
@@ -229,7 +229,7 @@ function initChart(data)
     Highcharts.chart('colChart', {
         chart: {
             type: 'column',
-            height: '110%',
+            //height: '110%',
             backgroundColor: '#191919',
             style: {
                 color: 'whitesmoke'
@@ -274,7 +274,7 @@ function initChart(data)
         tooltip: {
             useHTML: true,
             headerFormat: '',
-            pointFormat: '<b>{series.name}</b>: {point.y}m<sup>2</sup><br/>Total: {point.stackTotal}m<sup>2</sup>'
+            pointFormat: '<b>{series.name}</b>: {point.y}m<sup>2</sup><br/>'//Total: {point.stackTotal}m<sup>2</sup>'
         },
         plotOptions: {
             column: {
